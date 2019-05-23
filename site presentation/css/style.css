@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+body {
+	font-family: 'Quicksand', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #d8d8d8;
+}
+
+a, a:hover, a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style-type: square;
+}
+
+strong {
+	font-weight: bold;
+	font-size: 120%;
+}
+
+#container {
+	margin: auto;
+	width: 656px;
+	margin-top: 50px;
+}
+
+.clear {
+	clear: both;
+}
+
+.box {
+	width: 310px;
+	height: 160px;
+	float: left;
+	margin: 9px;
+	text-align: center;
+	padding-top: 135px;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: -2px;
+}
+
+.page {
+	width: 650px;
+	margin: auto;
+	font-size: 14px;
+	padding: 20px;
+}
+
+#charlie {
+	background-color: #a28c7e;
+	color: #d8d8d8;
+	border-radius: 35px 0;
+	-moz-border-radius: 35px 0;
+	-webkit-border-radius: 35px 0;
+	padding-top: 120px;
+	height: 175px;
+}
+
+#publications {
+	background-color: white;
+	color: black;
+	border-radius: 35px 0;
+	-moz-border-radius: 35px 0;
+	-webkit-border-radius: 35px 0;
+}
+
+#teaching {
+	background-color: #222725;
+	color: #d8d8d8;
+	border-radius: 0 35px;
+	-moz-border-radius: 0 35px;
+	-webkit-border-radius: 0 35px;
+}
+
+#research {
+	background-color: #c32114;
+	color: #d8d8d8;
+	border-radius: 0 35px;
+	-moz-border-radius: 0 35px;
+	-webkit-border-radius: 0 35px;
+}
+
+#name {
+	font-size: 28px;
+}
+
+#copyright {
+	text-align: center;
+	margin: 10px 0;
+	font-size: 12px;
+}
+
+#publications li {
+	margin-bottom: 5px;
+}
+
+/* Menu */
+#menu {
+	width: 200px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+#menu li a {
+	display: block;
+	padding: 5px 5px 5px 15px;
+}
+
+#menu li:last-child a {
+	border-radius: 0 0 0 10px;
+	-moz-border-radius: 0 0 0 15px;
+	-webkit-border-radius: 0 0 0 15px;
+}
+
+#menu li#menu_home a {
+	background-color: #a28c7e;
+	color: #d8d8d8;
+}
+
+#menu li#menu_publications a {
+	background-color: white;
+	color: black;
+}
+
+#menu li#menu_teaching a {
+	background-color: #222725;
+	color: #d8d8d8;
+}
+
+#menu li#menu_research a {
+	background-color: #c32114;
+	color: #d8d8d8;
+}
+
+#menu li#menu_photo a {
+	background-color: #c32114;
+	color: #d8d8d8;
+}
+
+#menu li#menu_who a {
+	background-color: #222725;
+	color: #d8d8d8;
+}
+
+ol {
+	text-align: justify;
+}
+
+ol li {
+	margin-right: 10px;
+}
+
+a.http {
+	color: #c32114;
+}
+
+#charybde {
+	text-align: center;
+}
