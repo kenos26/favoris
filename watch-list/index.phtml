@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+<body>
+    <main>
+        <h1>Gestionnaire des séries</h1>
+        <section>
+            <?php $i = 0?>
+            <?php foreach($tasks as $task): ?>
+                <li>
+                    <input type="checkbox" name= "check" value= $i>
+                    <? echo task [0] ?>;
+                <?php endforeach?>
+
+            <li>
+                <?php
+                // Initialisation d'une ligne a 1
+                $row = 1;
+                // On ouvre le fichier csv en lecture.
+                // SI l'ouverture a réussie on  continue
+                if (($file = fopen("tasks.csv", "a+")) !== FALSE) {
+
+                    //Tant qu'on a une ligne dans notre csv ( on spécifie le nombre de ligne max et le séparateur)
+                    while (($line = fgetcsv($file)) !== FALSE) {
+                        // $num = nombre de champs dans cette ligne
+                        $num = count($line);
+
+                        // On affiche le nomre de champs pour la ligne en question
+                        echo "<img class="fit-picture"src=".$line[0].""/>"."<br />\n"."Titre: ".$line[1]."<br />\n"."Résumé: ".$line[2]."<br />\n"."Date de diffusion: ".$line[3]."<br />\n"."Priorité: ".$line[4]."<br />\n";
+                        // On affiche les données de la cellule
+                    }
+                }
+                // On ferme le document manipulé.
+                fclose($file);
+                ?>
+            </li>
+        </section>
+        <section>
+            <!-- Formulaire d'ajout de tâche -->
+            <form class="standard-form label-left" action="add.php" method="POST">
+                <fieldset>
+                    <legend>Informations sur la tâche</legend>
+                    <ul>
+                        <li>
+                            <label for="img">Image :</label>
+                            <input id="img" type="file" name="img">
+                        </li>
+                        <li>
+                            <label for="title">Titre :</label>
+                            <input id="title" type="text" name="title">
+                        </li>
+                        <li>
+                            <label for="description">Resumé :</label>
+                            <textarea id="description" name="description"></textarea>
+                        </li>
+                        <li>
+                            <label for="day">Date de difussion :</label>
+                            <select id="day" name="day">
+                                <?php for($i = 1; $i <= 31; $i++) :?>
+                                    <option value="<?= $i ?>"><?= $i ?> </option>
+                                <?php endfor; ?>
+                            </select>
+                            <span>/</span>
+                            <select name="month">
+                                <?php
+                                $months = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+                                foreach($months as $month) :
+                                    ?>
+                                    <option value="<?= $month ?>"> <?= $month ?> </option>
+                                <?php endforeach;?>
+                            </select>
+                            <span>/</span>
+                            <select name="year">
+                                <?php for($i = 2019; $i < 2024; $i++): ?>
+                                    <option value="<?= $i ?>"> <?= $i ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="day">Date de fin de difussion :</label>
+                            <select id="day" name="day">
+                                <?php for($i = 1; $i <= 31; $i++) :?>
+                                    <option value="<?= $i ?>"><?= $i ?> </option>
+                                <?php endfor; ?>
+                            </select>
+                            <span>/</span>
+                            <select name="month">
+                                <?php
+                                $months = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+                                foreach($months as $month) :
+                                    ?>
+                                    <option value="<?= $month ?>"> <?= $month ?> </option>
+                                <?php endforeach;?>
+                            </select>
+                            <span>/</span>
+                            <select name="year">
+                                <?php for($i = 2019; $i < 2024; $i++): ?>
+                                    <option value="<?= $i ?>"> <?= $i ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </li>
+                        <li>
+                            <label>Priorité :</label>
+                            <label for="priority">Basse</label>
+                            <input type="radio" name="priority" value="basse">
+                            <label for="priority">Normale</label>
+                            <input type="radio" name="priority" value="medium">
+                            <label for="priority">Haute</label>
+                            <input type="radio" name="priority" value="haute">
+                        </li>
+                        <li>
+                            <input type="submit" value="Ajouter" title="Ajouter une nouvelle tâche">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

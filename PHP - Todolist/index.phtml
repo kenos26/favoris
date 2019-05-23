@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <style type="text/css">
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        background: none;
+        color: red;
+    }
+    .wa span {
+        display: none;
+    }
+    main{
+        background-image:url(img/block-note.jpg);
+        display: flex;
+        position: absolute;
+        margin-top:25px;
+        left: 100px;
+        width: 200px;
+        border:1px solid #009900;
+        background:#ffffff;
+        text-align: center;
+        color: #ff0000;
+    }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>To Do List</h1>
+    </header>
+        <main>
+            <form action="index.php" method="post">
+                <!-- <p><input type="checkbox" name="check">"Mort aux rats pour chat voisin"</p>
+                <p><input type="checkbox" name="check">"Prévoir stock colle dentaire"</p>
+                <p><input type="checkbox" name="check" class="wa"><span>"Inscription 3wa Live - EN RETARD"</span></p> -->
+                <div>
+                    <h1>>Nouvelle Tache</h1>
+                    <p>Titre<input type="text" name="Titre"></p>
+                    <p>Description<input type="text" name="description"></p>
+                    <p>
+                        <label for="end">Date de fin</label>
+                        <input type="date" id="end" name="end-date"
+                        value="2019-05-22"
+                        min="2019-05-22"
+                        max="2024-05-22">
+                    </p>
+                    <p>Priorité
+                        <input type="radio" id="basse" name="dot" value="basse">
+                        <label for="basse">Basse</label>
+                        <input type="radio" id="normale" name="dot" value="normale">
+                        <label for="normale">Normale</label>
+                        <input type="radio" id="haute" name="dot" value="haute">
+                        <label for="haute">Haute</label>
+                    </p>
+                    <button type="submit" name="enregistrer">Enregistrer</button>
+                </div>
+            </form>
+        </main>
+    </body>
+    </html>

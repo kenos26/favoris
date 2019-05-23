@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+<body>
+	<main>
+        <h1>Gestionnaire de tâches :-)</h1>
+        <form action="remove.php" method="POST">
+	        <ul>
+	        	<?php $i = 0; ?>
+	        	<?php foreach($tasks as $task): ?>
+	        		<li>
+	        			<?php echo $i;?>
+	        			<input type="checkbox" name="check[]" value="<?= $i ?>">
+	        			<?= $task[0] ?>
+	        		</li>
+	        		<?php $i++; ?>
+	        	<?php endforeach; ?>
+	        </ul>
+	        <input type="submit" value="Supprimer">
+    	</form>
+         <section>
+            <!-- Formulaire d'ajout de tâche -->
+            <form class="standard-form label-left" action="add.php" method="POST">
+                <fieldset>
+                    <legend>Informations sur la tâche</legend>
+                    <ul>
+                        <li>
+                            <label for="title">Titre :</label>
+                            <input id="title" type="text" name="title">
+                        </li>
+                        <li>
+                            <label for="description">Tâche :</label>
+                            <textarea id="description" name="description"></textarea>
+                        </li>
+                        <li>
+                            <label for="day">Date de fin :</label>
+                            <select id="day" name="day">
+                               <?php for($i = 1; $i <= 31; $i++) :?>
+                               		<option value="<?= $i ?>"><?= $i ?> </option>
+                               <?php endfor; ?>
+                            </select>
+                            <span>/</span>
+                            <select name="month">
+				            	<?php
+				            		$months = ["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+				            		foreach($months as $month) :
+				            	 ?>
+				            	 	<option value="<?= $month ?>"> <?= $month ?> </option>
+				            	<?php endforeach;?>
+                            </select>
+                            <span>/</span>
+                            <select name="year">
+                          		<?php for($i = 2019; $i < 2024; $i++): ?>
+                          			<option value="<?= $i ?>"> <?= $i ?></option>
+                          		<?php endfor; ?>
+                            </select>
+                        </li>
+                        <li>
+                            <label>Priorité :</label>
+                            <label for="priority">Basse</label>
+                            <input type="radio" name="priority" value="basse">
+                            <label for="priority">Normale</label>
+                            <input type="radio" name="priority" value="medium">
+                            <label for="priority">Haute</label>
+                            <input type="radio" name="priority" value="haute">
+                        </li>
+                        <li>
+                            <input type="submit" value="Ajouter" title="Ajouter une nouvelle tâche">
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

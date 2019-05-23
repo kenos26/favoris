@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="05-exercice-traducteur.css">
+</head>
+<body>
+    <header>
+        <h1>Traducteur Anglais - Français</h1>
+    </header>
+    <main>
+        <?php if($result == null): ?>
+            <form action="traducteur.php" method="POST">
+                <input type="text" name="word">
+                <select name="language">
+                    <option value="toFrench"> Anglais vers Français </option>
+                    <option value="toEnglish"> Français vers Anglais </option>
+                </select>
+                <input type="submit" value="Traduire">
+            </form>
+        <?php else: ?>
+            <p> <?= $result ?> </p>
+        <?php endif; ?>
+    </main>
+</body>
+</html>
